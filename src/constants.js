@@ -8,6 +8,7 @@ export const classes = {
   CONTROL_BUTTON_TRASH: 'mapbox-gl-draw_trash',
   CONTROL_BUTTON_COMBINE_FEATURES: 'mapbox-gl-draw_combine',
   CONTROL_BUTTON_UNCOMBINE_FEATURES: 'mapbox-gl-draw_uncombine',
+  CONTROL_BUTTON_SAVE: 'mapbox-gl-draw_save',
   CONTROL_GROUP: 'mapboxgl-ctrl-group',
   ATTRIBUTION: 'mapboxgl-ctrl-attrib',
   ACTIVE_BUTTON: 'active',
@@ -63,7 +64,8 @@ export const events = {
   ACTIONABLE: 'draw.actionable',
   RENDER: 'draw.render',
   COMBINE_FEATURES: 'draw.combine',
-  UNCOMBINE_FEATURES: 'draw.uncombine'
+  UNCOMBINE_FEATURES: 'draw.uncombine',
+  SAVE: 'draw.save'
 };
 
 export const updateActions = {
