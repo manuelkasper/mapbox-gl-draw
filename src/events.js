@@ -261,6 +261,9 @@ export default function(ctx) {
     uncombineFeatures() {
       currentMode.uncombineFeatures();
     },
+    open() {
+      ctx.map.fire(Constants.events.OPEN);
+    },
     save() {
       ctx.map.fire(Constants.events.SAVE);
     },

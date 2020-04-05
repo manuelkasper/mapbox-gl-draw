@@ -170,6 +170,17 @@ export default function(ctx) {
       });
     }
 
+    if (controls.open) {
+      buttonElements.save = createControlButton('open', {
+        container: controlGroup,
+        className: Constants.classes.CONTROL_BUTTON_OPEN,
+        title: 'Open',
+        onActivate: () => {
+          ctx.events.open();
+        }
+      });
+    }
+
     if (controls.save) {
       buttonElements.save = createControlButton('save', {
         container: controlGroup,
