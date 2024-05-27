@@ -1,6 +1,6 @@
 export const classes = {
-  CONTROL_BASE: 'mapboxgl-ctrl',
-  CONTROL_PREFIX: 'mapboxgl-ctrl-',
+  CONTROL_BASE: 'maplibregl-ctrl',
+  CONTROL_PREFIX: 'maplibregl-ctrl-',
   CONTROL_BUTTON: 'mapbox-gl-draw_ctrl-draw-btn',
   CONTROL_BUTTON_LINE: 'mapbox-gl-draw_line',
   CONTROL_BUTTON_POLYGON: 'mapbox-gl-draw_polygon',
@@ -10,8 +10,8 @@ export const classes = {
   CONTROL_BUTTON_UNCOMBINE_FEATURES: 'mapbox-gl-draw_uncombine',
   CONTROL_BUTTON_OPEN: 'mapbox-gl-draw_open',
   CONTROL_BUTTON_SAVE: 'mapbox-gl-draw_save',
-  CONTROL_GROUP: 'mapboxgl-ctrl-group',
-  ATTRIBUTION: 'mapboxgl-ctrl-attrib',
+  CONTROL_GROUP: 'maplibregl-ctrl-group',
+  ATTRIBUTION: 'maplibregl-ctrl-attrib',
   ACTIVE_BUTTON: 'active',
   BOX_SELECT: 'mapbox-gl-draw_boxselect'
 };
