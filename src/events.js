@@ -97,18 +97,25 @@ export default function(ctx) {
     }
 
     currentMode.touchmove(event);
-    return events.touchdrag(event);
+    if (event.points.length === 1) {
+      events.touchdrag(event);
+    }
   };
 
   events.touchend = function(event) {
-    // Prevent emulated mouse events because we will fully handle the touch here.
-    // This does not stop the touch events from propogating to mapbox though.
-    event.originalEvent.preventDefault();
     if (!ctx.options.touchEnabled) {
       return;
     }
 
     const target = featuresAt.touch(event, null, ctx)[0];
+
+    // If there are no mapbox targets nearby, let the event propagate through
+    if (!target) {
+     return;
+    }
+
+    event.originalEvent.preventDefault();
+
     event.featureTarget = target;
     if (isTap(touchStartInfo, {
       time: new Date().getTime(),
@@ -125,7 +132,7 @@ export default function(ctx) {
   const isKeyModeValid = code => !(code === 8 || code === 46 || (code >= 48 && code <= 57));
 
   events.keydown = function(event) {
-    const isMapElement = (event.srcElement || event.target).classList.contains('mapboxgl-canvas');
+    const isMapElement = (event.srcElement || event.target).classList.contains('maplibregl-canvas');
     if (!isMapElement) return; // we only handle events on the map
 
     if ((event.keyCode === 8 || event.keyCode === 46) && ctx.options.controls.trash) {
@@ -259,6 +266,12 @@ export default function(ctx) {
     },
     uncombineFeatures() {
       currentMode.uncombineFeatures();
+    },
+    open() {
+      ctx.map.fire(Constants.events.OPEN);
+    },
+    save() {
+      ctx.map.fire(Constants.events.SAVE);
     },
     getMode() {
       return currentModeName;

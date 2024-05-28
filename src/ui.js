@@ -69,7 +69,9 @@ export default function(ctx) {
       const clickedButton = e.target;
       if (clickedButton === activeButton) {
         deactivateButtons();
-        options.onDeactivate();
+        if (options.onDeactivate) {
+          options.onDeactivate();
+        }
         return;
       }
 
@@ -164,6 +166,28 @@ export default function(ctx) {
         title: 'Uncombine',
         onActivate: () => {
           ctx.events.uncombineFeatures();
+        }
+      });
+    }
+
+    if (controls.open) {
+      buttonElements.save = createControlButton('open', {
+        container: controlGroup,
+        className: Constants.classes.CONTROL_BUTTON_OPEN,
+        title: 'Open',
+        onActivate: () => {
+          ctx.events.open();
+        }
+      });
+    }
+
+    if (controls.save) {
+      buttonElements.save = createControlButton('save', {
+        container: controlGroup,
+        className: Constants.classes.CONTROL_BUTTON_SAVE,
+        title: 'Save',
+        onActivate: () => {
+          ctx.events.save();
         }
       });
     }
